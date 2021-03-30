@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-coffice-tasca"
+        version="0.0.3"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CofficeTasca</name>
+    <js-module name="CofficeTasca" src="www/CofficeTasca.js">
+        <clobbers target="cordova.plugins.CofficeTasca"/>
+        <clobbers target="cofficetasca"/>
+    </js-module>
+    <engines>
+        <engine name="cordova" version=">=6.4.0"/>
+        <engine name="cordova-ios" version=">=4.3.0"/>
+    </engines>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="CofficeTasca">
+                <param name="ios-package" value="CofficeTasca"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <framework src="CoreLocation.framework"/>
+        <framework src="AFNetworking" spec="~> 3.0" weak="false" type="podspec"/>
+        <framework src="sqlite3" weak="false" spec="" type="podspec"/>
+
+        <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
+            <string>Using geocoder service</string>
+        </config-file>
+        <source-file src="src/ios/CofficeTasca.m"/>
+        <header-file src="src/ios/CofficeTascaInternal.h"/>
+        <source-file src="src/ios/CofficeTascaInternal.m"/>
+        <header-file src="src/ios/TascaCommon.h"/>
+        <source-file src="src/ios/TascaCommon.m"/>
+        <header-file src="src/ios/TascaDBHelper.h"/>
+        <source-file src="src/ios/TascaDBHelper.m"/>
+        <header-file src="src/ios/TascaRequestManager.h"/>
+        <source-file src="src/ios/TascaRequestManager.m"/>
+        <header-file src="src/ios/sqlite/SQLiteManager.h"/>
+        <source-file src="src/ios/sqlite/SQLiteManager.m"/>
+        <resource-file src="src/ios/tascadb.db"/>
+    </platform>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CofficeTasca">
+                <param name="android-package" value="com.tasca.android.CofficeTasca"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
+        </config-file>
+        <source-file src="src/android/CofficeTasca.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/CofficeTascaInternal.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/Downloader.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/DatabaseManager.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/FileUtils.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/Utils.java" target-dir="src/com/tasca/android"/>
+        <source-file src="src/android/data/DatabaseItem.java" target-dir="src/com/tasca/android/data"/>
+        <source-file src="src/android/data/Estate.java" target-dir="src/com/tasca/android/data"/>
+        <source-file src="src/android/data/ImageRecord.java" target-dir="src/com/tasca/android/data"/>
+        <source-file src="src/android/data/Taste.java" target-dir="src/com/tasca/android/data"/>
+        <source-file src="src/android/data/Wine.java" target-dir="src/com/tasca/android/data"/>
+    </platform>
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CofficeTasca">
+                <param name="browser-package" value="CofficeTasca" />
+            </feature>
+        </config-file>
+    </platform>
+</plugin>

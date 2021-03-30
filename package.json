@@ -1,0 +1,28 @@
+{
+  "name": "CofficeTasca",
+  "version": "0.0.2",
+  "description": "Tasca Native Coffice plugin",
+  "cordova": {
+    "id": "cordova-coffice-tasca",
+    "platforms": [
+      "ios",
+      "android",
+      "browser"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Itasca/CofficeTasca.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "Coffice s.r.l.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Itasca/CofficeTasca/issues"
+  },
+  "homepage": "https://gitlab.com/Itasca/CofficeTasca#README"
+}
